@@ -1,0 +1,7 @@
+package com.example.feign;
+
+@FeignClient("bookstore-order-service")
+public interface OrderFeignClient {
+
+
+}

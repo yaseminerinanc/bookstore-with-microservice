@@ -1,0 +1,21 @@
+package com.example.common.util;
+
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(
+    value = {"created_at", "updated_at"},
+    allowGetters = true
+)
+@Getter
+@Setter
+public abstract class DateAudit implements Serializable {
+
+  @CreatedDate
+  @Column(name = "CREATED_AT")
+  private Instant createdAt;
+
+  @LastModifiedDate
+  @Column(name = "UPDATED_AT")
+  private Instant updatedAt;
+
+}

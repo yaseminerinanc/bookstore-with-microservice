@@ -1,0 +1,71 @@
+package com.example.orderservice.service.Impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.feign.PaymentFeignClient;
+import com.example.orderservice.dto.request.CreateOrderRequest;
+import com.example.orderservice.dto.request.PreviewOrderRequest;
+import com.example.orderservice.dto.response.CreateOrderResponse;
+import com.example.orderservice.dto.response.PreviewOrderResponse;
+import com.example.orderservice.repository.OrderItemRepository;
+import com.example.orderservice.repository.OrderRepository;
+import com.example.orderservice.repository.OrderShippingAddressRepository;
+import com.example.orderservice.service.CartItemService;
+import com.example.orderservice.service.CartService;
+import com.example.orderservice.service.OrderService;
+
+@Service
+public class OrderServiceImpl implements OrderService  {
+	
+	@Autowired
+    OrderRepository orderRepository;
+    
+    @Autowired
+    OrderItemRepository orderItemRepository;
+
+    @Autowired
+    OrderShippingAddressRepository orderShippingAddressRepository;
+
+    @Autowired
+    CartService cartService;
+
+    @Autowired
+    CartItemService cartItemService;
+
+    @Autowired
+    PaymentFeignClient paymentFeignClient;
+
+	@Override
+	public CreateOrderResponse createOrder(CreateOrderRequest createOrderRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PreviewOrderResponse previewOrder(PreviewOrderRequest previewOrderRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CreateOrderResponse getOrderById(String orderId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CreateOrderResponse> getMyOrders() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CreateOrderResponse> getAllOrders() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

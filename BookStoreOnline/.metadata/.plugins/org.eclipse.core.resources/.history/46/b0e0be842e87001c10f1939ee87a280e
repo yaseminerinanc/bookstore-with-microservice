@@ -1,0 +1,29 @@
+package com.example.common.config;
+
+@Configuration
+@EnableJpaAuditing
+public class AuditingConfig {
+
+    @Bean
+    public AuditorAware<String> auditorProvider() {
+        return new SpringSecurityAuditAwareImpl();
+    }
+}
+
+class SpringSecurityAuditAwareImpl implements AuditorAware<String> {
+
+    @Override
+    public Optional<String> getCurrentAuditor() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null ||
+                !authentication.isAuthenticated() ||
+                authentication instanceof AnonymousAuthenticationToken) {
+            return Optional.empty();
+        }
+
+        String userPrincipal = (String)authentication.getPrincipal();
+
+        return Optional.ofNullable(userPrincipal);
+    }
+}

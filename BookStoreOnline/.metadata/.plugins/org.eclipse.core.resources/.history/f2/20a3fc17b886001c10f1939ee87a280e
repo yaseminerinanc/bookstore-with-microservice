@@ -1,0 +1,5 @@
+package com.example.bookstoreaccountservice.repository;
+
+public class OAuthClientRepository {
+
+}

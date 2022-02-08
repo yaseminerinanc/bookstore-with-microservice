@@ -1,0 +1,14 @@
+package com.example.orderservice.service;
+
+public interface OrderService {
+
+    CreateOrderResponse createOrder(CreateOrderRequest createOrderRequest);
+
+    PreviewOrderResponse previewOrder(PreviewOrderRequest previewOrderRequest);
+
+    CreateOrderResponse getOrderById(String orderId);
+
+    List<CreateOrderResponse> getMyOrders();
+
+    List<CreateOrderResponse> getAllOrders();
+}

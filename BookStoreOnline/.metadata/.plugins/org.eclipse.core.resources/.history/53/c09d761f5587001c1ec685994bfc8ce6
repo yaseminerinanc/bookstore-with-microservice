@@ -1,0 +1,44 @@
+package com.example.catalogservice.service.Impl;
+
+import javax.validation.Valid;
+
+import org.springframework.data.domain.Page;
+
+import com.example.catalogservice.dto.request.CreateProductCategoryRequest;
+import com.example.catalogservice.dto.request.UpdateProductCategoryRequest;
+import com.example.catalogservice.entity.ProductCategory;
+import com.example.catalogservice.service.ProductCategoryService;
+
+public class ProductCategoryServiceImpl implements ProductCategoryService {
+
+	@Override
+	public String createProductCategory(@Valid CreateProductCategoryRequest createProductCategoryRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ProductCategory getProductCategory(String productCategoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteProductCategory(String productCategoryId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateProductCategory(UpdateProductCategoryRequest updateProductCategoryRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Page<ProductCategory> getAllProductCategories(String sort, Integer page, Integer size) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

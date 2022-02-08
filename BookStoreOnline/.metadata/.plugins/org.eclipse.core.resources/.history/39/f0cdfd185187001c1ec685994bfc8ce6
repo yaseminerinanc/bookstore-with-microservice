@@ -1,0 +1,14 @@
+package com.example.catalogservice.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ProductRepository  extends JpaRepository<Review, String> {
+
+    Optional<Review> findByUserIdAndProductId(String userId, String productId);
+
+    Optional<List<Review>> findAllByProductId(String productId);
+
+    //    long countAllByProductIdAndReviewMessageNotNull (String productId);
+    long countAllByProductId(String productId);
+}

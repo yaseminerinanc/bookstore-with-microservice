@@ -1,0 +1,17 @@
+package com.example.billingservice.config;
+
+@Configuration
+public class BillingServiceConfig {
+    
+    @Bean
+    Logger.Level feignLoggerLevel() {
+        return Logger.Level.FULL;
+    }
+    
+    @LoadBalanced
+    @Bean
+    RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+    
+}

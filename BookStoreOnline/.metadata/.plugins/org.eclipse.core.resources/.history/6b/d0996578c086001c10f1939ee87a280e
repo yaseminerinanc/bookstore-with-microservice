@@ -1,0 +1,9 @@
+package com.example.bookstoreaccountservice.service;
+
+public interface AuthService {
+	
+	 CreateOAuthClientResponse createOAuthClient(CreateOAuthClientRequest createOAuthClientRequest);
+
+	  CreateUserResponse registerUser(SignUpRequest signUpRequest);
+
+}

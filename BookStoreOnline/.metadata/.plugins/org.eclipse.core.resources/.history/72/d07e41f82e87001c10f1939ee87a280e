@@ -1,0 +1,11 @@
+package com.example.common.exception;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Error {
+
+  private String code;
+  private String message;
+}

@@ -1,0 +1,28 @@
+package com.example.orderservice.dto.response;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.smartcardio.Card;
+
+import com.example.orderservice.entity.OrderItem;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class PreviewOrderResponse {
+    private List<OrderItem> orderItems = new ArrayList<>();
+    private GetAddressResponse shippingAddress;
+    
+    private Cart card;
+    private Double itemsTotalPrice;
+    private Double taxPrice;
+    private Double shippingPrice;
+    private Double totalPrice;
+}

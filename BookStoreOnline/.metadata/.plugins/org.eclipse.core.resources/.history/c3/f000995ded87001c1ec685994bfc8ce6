@@ -1,0 +1,17 @@
+package com.example.billingservice.service;
+
+import com.example.billingservice.dto.request.CreateAddressRequest;
+
+public interface AddressService {
+	
+	  void createAddress(CreateAddressRequest createAddressRequest);
+
+	  List<GetAddressResponse> getAddress();
+
+	  void updateAddress(UpdateAddressRequest updateAddressRequest);
+
+	  GetAddressResponse getAddressById(String addressId);
+
+	  void deleteAddressById(String addressId);
+
+}

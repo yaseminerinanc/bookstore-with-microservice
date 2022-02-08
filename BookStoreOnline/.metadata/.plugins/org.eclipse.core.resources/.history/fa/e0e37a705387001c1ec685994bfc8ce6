@@ -1,0 +1,11 @@
+package com.example.catalogservice.service;
+
+import com.example.catalogservice.dto.request.CreateOrUpdateReviewRequest;
+
+public interface ReviewService {
+	
+	 void createOrUpdateReview(CreateOrUpdateReviewRequest createOrUpdateReviewRequest);
+
+	    List<Review> getReviewsForProduct(String productId);
+
+}

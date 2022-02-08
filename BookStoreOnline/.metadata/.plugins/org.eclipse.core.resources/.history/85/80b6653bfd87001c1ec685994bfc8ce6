@@ -1,0 +1,13 @@
+package com.example.orderservice.config;
+
+@Configuration
+public class OrderServiceConfig {
+
+    @LoadBalanced
+    @Bean
+    RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
+}
+

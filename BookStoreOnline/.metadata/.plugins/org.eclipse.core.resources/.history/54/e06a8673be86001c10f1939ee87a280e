@@ -1,0 +1,5 @@
+package com.example.bookstoreaccountservice.service;
+
+public interface UserRoleService {
+
+}

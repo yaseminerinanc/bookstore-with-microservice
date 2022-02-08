@@ -1,0 +1,15 @@
+package com.example.feign;
+
+@FeignClient("bookstore-account-service")
+public interface AccountFeignClient {
+
+    @GetMapping("/user")
+    GetUserResponse getUserByUserName(@RequestParam("userName") String userName);
+
+    @GetMapping("/user")
+    GetUserResponse getUserById(@RequestParam("userId") String userId);
+
+    @GetMapping("/userInfo")
+    GetUserInfoResponse getUserInfo();
+
+}

@@ -1,0 +1,18 @@
+package com.example.orderservice.service;
+
+import java.util.List;
+
+import com.example.orderservice.dto.response.CreateOrderResponse;
+
+public interface OrderService {
+
+    CreateOrderResponse createOrder(CreateOrderRequest createOrderRequest);
+
+    PreviewOrderResponse previewOrder(PreviewOrderRequest previewOrderRequest);
+
+    CreateOrderResponse getOrderById(String orderId);
+
+    List<CreateOrderResponse> getMyOrders();
+
+    List<CreateOrderResponse> getAllOrders();
+}

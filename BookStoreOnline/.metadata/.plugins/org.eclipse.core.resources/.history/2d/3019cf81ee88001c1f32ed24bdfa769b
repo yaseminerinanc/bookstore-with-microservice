@@ -1,0 +1,5 @@
+package com.example.catalogservice.config;
+
+public class AuthForwardInterceptor extends GlobalResourceServerConfig {
+
+}

@@ -1,0 +1,15 @@
+package com.example.billingservice.service;
+
+public interface AddressService {
+	
+	  void createAddress(CreateAddressRequest createAddressRequest);
+
+	  List<GetAddressResponse> getAddress();
+
+	  void updateAddress(UpdateAddressRequest updateAddressRequest);
+
+	  GetAddressResponse getAddressById(String addressId);
+
+	  void deleteAddressById(String addressId);
+
+}

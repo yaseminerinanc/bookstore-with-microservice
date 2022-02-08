@@ -1,0 +1,32 @@
+package com.example.catalogservice.service.Impl;
+
+import java.util.List;
+
+import com.example.catalogservice.dto.request.CreateOrUpdateReviewRequest;
+import com.example.catalogservice.entity.Review;
+import com.example.catalogservice.service.ReviewService;
+
+public class ReviewServiceImpl implements ReviewService {
+	
+    @Autowired
+    ReviewRepository reviewRepository;
+
+    @Autowired
+    AccountFeignClient accountFeignClient;
+
+    @Autowired
+    ProductService productService;
+
+	@Override
+	public void createOrUpdateReview(CreateOrUpdateReviewRequest createOrUpdateReviewRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Review> getReviewsForProduct(String productId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

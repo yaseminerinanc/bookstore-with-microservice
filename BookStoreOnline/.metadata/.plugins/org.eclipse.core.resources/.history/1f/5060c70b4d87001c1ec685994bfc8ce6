@@ -1,0 +1,11 @@
+package com.example.feign.request;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CreatePaymentRequest {
+    private int amount;
+    private String currency;
+    private String paymentMethodId;
+
+}

@@ -1,0 +1,52 @@
+package com.example.orderservice.service.Impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.feign.AccountFeignClient;
+import com.example.feign.CatalogFeignClient;
+import com.example.orderservice.dto.request.CartItemRequest;
+import com.example.orderservice.entity.CartItem;
+import com.example.orderservice.repository.CartItemRepository;
+import com.example.orderservice.service.CartItemService;
+import com.example.orderservice.service.CartService;
+
+@Service
+public class CartItemServiceImpl implements CartItemService {
+
+    @Autowired
+    CartService cartService;
+
+    @Autowired
+    CatalogFeignClient catalogFeignClient;
+
+    @Autowired
+    CartItemRepository cartItemRepository;
+
+    @Autowired
+    AccountFeignClient accountFeignClient;
+
+	@Override
+	public void addCartItem(CartItemRequest cartItemRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeCartItem(String cartItemId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public CartItem getCartItem(String cartItemId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void removeAllCartItems(String cartId) {
+		// TODO Auto-generated method stub
+		
+	}
+}

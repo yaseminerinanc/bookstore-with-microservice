@@ -1,0 +1,11 @@
+package com.example.bookstoreaccountservice.entity;
+
+
+
+@Entity
+@Table
+
+
+public class User {
+
+}

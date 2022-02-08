@@ -1,0 +1,7 @@
+package com.example.bookstoreaccountservice.dto;
+
+public class MapUserToRolesRequest {
+	
+	 private List<String> roleNames;
+
+}

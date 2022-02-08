@@ -1,0 +1,19 @@
+package com.example.orderservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+@SpringBootApplication(scanBasePackages = {"com.example.common"})
+@ComponentScan(basePackages = {"com.devd.spring"})
+//, excludeFilters={
+//		@ComponentScan.Filter(type=FilterType.ASSIGNABLE_TYPE, value=GlobalSecurityConfig.class)})
+@EnableFeignClients(value = "com.devd.spring")
+@EnableEurekaClient
+public class BookstoreOrderServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BookstoreOrderServiceApplication.class, args);
+	}
+
+}

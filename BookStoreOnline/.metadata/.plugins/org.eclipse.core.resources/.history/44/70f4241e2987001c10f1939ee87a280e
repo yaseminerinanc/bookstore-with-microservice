@@ -1,0 +1,82 @@
+package com.devd.spring.bookstoreaccountservice.config;
+
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.ApiKey;
+import springfox.documentation.service.AuthorizationScope;
+import springfox.documentation.service.SecurityReference;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.contexts.SecurityContext;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+
+  @Autowired
+  ApiInfo apiInfo;
+  
+  @Value("${apiTimeStamp}")
+  private long apiTimeStamp;
+  
+  @Value("${apiMajorVersion}")
+  private String apiMajorVersion;
+  @Value("${apiMinorVersion}")
+  private String apiMinorVersion;
+
+  private ApiInfo apiInfo() {
+
+      return new ApiInfoBuilder()
+              .title("CRM MicroServices")
+              .description("<b>Client FrontEnd API</b><br /><br />Updated: [" + (new Date(apiTimeStamp)).toString() + " ]"
+                      + " <script>document.title = \"CRM MicroServices\";"
+                      + " document.getElementById('header').remove();"
+                      + "</script>")
+              .version(apiMajorVersion + "." + apiMinorVersion)
+              .build();
+  }
+
+  @Bean
+  public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2)
+        .securitySchemes(Arrays.asList(apiKey()))
+        .securityContexts(Collections.singletonList(securityContext()))
+        .select()
+        .apis(RequestHandlerSelectors.basePackage("com.devd.spring"))
+        .paths(PathSelectors.any())
+        .build()
+        .apiInfo(apiInfo);
+  }
+
+  private SecurityContext securityContext() {
+    return SecurityContext.builder().securityReferences(defaultAuth())
+        .forPaths(PathSelectors.regex("/.*")).build();
+  }
+
+  private List<SecurityReference> defaultAuth() {
+    final AuthorizationScope authorizationScope = new AuthorizationScope("global",
+        "accessEverything");
+    final AuthorizationScope[] authorizationScopes = new AuthorizationScope[]{authorizationScope};
+    return Collections.singletonList(new SecurityReference("Bearer", authorizationScopes));
+  }
+
+  private ApiKey apiKey() {
+    return new ApiKey("Bearer", "Authorization", "header");
+  }
+
+}

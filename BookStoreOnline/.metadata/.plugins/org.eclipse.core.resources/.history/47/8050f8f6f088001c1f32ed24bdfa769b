@@ -1,0 +1,14 @@
+package com.example.paymentservice.dto.request;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CreatePaymentRequest {
+
+    private int amount;
+    @NotBlank
+    private String currency;
+    @NotBlank
+    private String paymentMethodId;
+
+}

@@ -1,0 +1,40 @@
+package com.example.apigatewayservice.filters;
+
+@Component
+public class ErrorFilter extends ZuulFilter {
+    private static final Logger LOG = LoggerFactory.getLogger(ErrorFilter.class);
+
+    private static final String THROWABLE_KEY = "throwable";
+
+    @Autowired
+    @Qualifier("handlerExceptionResolver")
+    private HandlerExceptionResolver resolver;
+
+    @Override
+    public String filterType() {
+        return FilterConstants.ERROR_TYPE;
+    }
+
+    @Override
+    public int filterOrder() {
+        return -1;
+    }
+
+    @Override
+    public boolean shouldFilter() {
+        return true;
+    }
+
+    @Override
+    public Object run() {
+        final RequestContext context = RequestContext.getCurrentContext();
+        final Object throwable = context.get(THROWABLE_KEY);
+
+        if (throwable instanceof ZuulException) {
+            final ZuulException zuulException = (ZuulException) throwable;
+            LOG.error("Zuul failure detected: " + zuulException.getMessage());
+            resolver.resolveException(context.getRequest(), context.getResponse(), null, new RunTimeExceptionPlaceHolder(zuulException.getCause().getMessage(), context.getResponseStatusCode()));
+        }
+        return null;
+    }
+}

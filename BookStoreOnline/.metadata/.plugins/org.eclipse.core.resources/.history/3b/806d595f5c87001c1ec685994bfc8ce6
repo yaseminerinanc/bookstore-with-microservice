@@ -1,0 +1,10 @@
+package com.example.orderservice.repository;
+
+public interface CartItemRepository extends CrudRepository<CartItem, String> {
+
+    @Modifying
+    @Transactional
+    void deleteByCartItemId(String cartItemId);
+
+    Optional<CartItem> findByCartItemId(String cartItemId);
+}

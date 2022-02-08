@@ -1,0 +1,29 @@
+package com.example.paymentservice.service.Impl;
+
+import java.util.List;
+
+import com.example.feign.response.GetPaymentMethodResponse;
+import com.example.paymentservice.dto.request.CreatePaymentMethodRequest;
+import com.example.paymentservice.service.PaymentMethodService;
+
+public class PaymentMethodServiceImpl implements PaymentMethodService {
+
+	@Override
+	public void createPaymentMethod(CreatePaymentMethodRequest createPaymentMethodRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<GetPaymentMethodResponse> getAllMyPaymentMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public GetPaymentMethodResponse getMyPaymentMethodById(String paymentMethodId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

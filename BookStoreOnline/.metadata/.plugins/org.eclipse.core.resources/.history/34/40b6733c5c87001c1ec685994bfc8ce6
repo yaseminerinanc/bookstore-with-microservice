@@ -1,0 +1,9 @@
+package com.example.orderservice.repository;
+
+@Transactional
+public interface CartRepository extends CrudRepository<Cart, String> {
+
+    Cart findCartByUserName(String userName);
+
+    Optional<Cart> findByCartId(String cartId);
+}

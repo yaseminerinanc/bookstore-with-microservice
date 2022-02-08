@@ -1,0 +1,17 @@
+package com.example.bookstoreaccountservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.devd.spring"}, excludeFilters = {
+    @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = GlobalResourceServerConfig.class)})
+@EnableFeignClients
+@EnableDiscoveryClient
+public class BookstoreAccountServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BookstoreAccountServiceApplication.class, args);
+	}
+
+}

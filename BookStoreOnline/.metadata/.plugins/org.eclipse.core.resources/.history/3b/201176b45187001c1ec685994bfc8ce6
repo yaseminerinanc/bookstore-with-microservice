@@ -1,0 +1,11 @@
+package com.example.bookstoreaccountservice.model;
+
+@Data
+public class ProductResource extends EntityModel<Product> {
+    
+    private Pageable pageable;
+    
+    public ProductResource(Product content, Link... links) {
+        EntityModel.of(content, links);
+    }
+}

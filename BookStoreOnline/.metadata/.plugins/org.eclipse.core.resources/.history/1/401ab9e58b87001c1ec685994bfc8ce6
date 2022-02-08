@@ -1,0 +1,10 @@
+package com.example.paymentservice.service;
+
+import com.example.feign.request.CreatePaymentRequest;
+import com.example.feign.response.CreatePaymentResponse;
+
+public interface PaymentMethodService {
+	
+	CreatePaymentResponse createPaymentRequest(CreatePaymentRequest createPaymentRequest);
+
+}

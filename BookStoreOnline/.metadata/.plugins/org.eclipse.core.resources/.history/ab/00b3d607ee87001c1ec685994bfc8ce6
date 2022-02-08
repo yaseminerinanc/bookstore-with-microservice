@@ -1,0 +1,57 @@
+package com.example.billingservice.service.Impl;
+
+import java.util.List;
+
+import com.example.billingservice.dto.request.CreateAddressRequest;
+import com.example.billingservice.dto.request.UpdateAddressRequest;
+import com.example.billingservice.dto.response.GetAddressResponse;
+import com.example.billingservice.service.AddressService;
+
+public class AddressServiceImpl implements AddressService {
+
+	@Override
+	public void createAddress(CreateAddressRequest createAddressRequest) {
+		
+		 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	        String userIdFromToken = CommonUtilityMethods.getUserIdFromToken(authentication);
+
+	        AddressDao addressDao = AddressDao.builder()
+	                .addressLine1(createAddressRequest.getAddressLine1())
+	                .addressLine2(createAddressRequest.getAddressLine2())
+	                .city(createAddressRequest.getCity())
+	                .country(createAddressRequest.getCountry())
+	                .phone(createAddressRequest.getPhone())
+	                .postalCode(createAddressRequest.getPostalCode())
+	                .state(createAddressRequest.getState())
+	                .userId(userIdFromToken)
+	                .build();
+
+	        addressRepository.save(addressDao);
+		
+	}
+
+	@Override
+	public List<GetAddressResponse> getAddress() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateAddress(UpdateAddressRequest updateAddressRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public GetAddressResponse getAddressById(String addressId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteAddressById(String addressId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

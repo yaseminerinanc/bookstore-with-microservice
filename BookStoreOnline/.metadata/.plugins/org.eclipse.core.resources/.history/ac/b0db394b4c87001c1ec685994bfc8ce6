@@ -1,0 +1,13 @@
+package com.example.feign;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient("bookstore-payment-service")
+public interface PaymentFeignClient {
+
+    @GetMapping("/paymentMethod/{paymentMethodId}")
+    GetPaymentMethodResponse getMyPaymentMethodById(@PathVariable("paymentMethodId") String paymentMethodId);
+
+    @PostMapping("/pay")
+    CreatePaymentResponse doPayment(CreatePaymentRequest createPaymentRequest);
+}

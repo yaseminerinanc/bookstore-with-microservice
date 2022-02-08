@@ -1,0 +1,13 @@
+package com.example.orderservice.service;
+
+public interface CartService {
+	
+	 Cart getCart();
+	    
+	    Cart getCartByCartId(String cartId);
+
+	    String createCart();
+
+	    Cart getCartByUserName(String userName);
+
+}

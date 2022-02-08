@@ -1,0 +1,7 @@
+package com.example.catalogservice.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ProductRepositoryextends JpaRepository<Product, String> {
+}

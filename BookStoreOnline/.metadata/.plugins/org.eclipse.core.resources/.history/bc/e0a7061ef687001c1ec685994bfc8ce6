@@ -1,0 +1,9 @@
+package com.example.feign;
+
+@FeignClient("bookstore-billing-service")
+public interface BillingFeignClient {
+
+    @GetMapping("/address/{addressId}")
+    GetAddressResponse getAddressById(@PathVariable("addressId") String addressId);
+
+}

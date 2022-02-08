@@ -1,0 +1,5 @@
+package com.example.feign.request;
+
+public class CreatePaymentRequest {
+
+}

@@ -1,0 +1,9 @@
+package com.example.catalogservice.service;
+
+public interface ReviewService {
+	
+	 void createOrUpdateReview(CreateOrUpdateReviewRequest createOrUpdateReviewRequest);
+
+	    List<Review> getReviewsForProduct(String productId);
+
+}

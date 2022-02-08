@@ -1,0 +1,15 @@
+ package com.example.common;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.feign.response.GetAddressResponse;
+
+@FeignClient("bookstore-billing-service")
+public interface BillingFeignClient {
+
+    @GetMapping("/address/{addressId}")
+    GetAddressResponse getAddressById(@PathVariable("addressId") String addressId);
+
+}

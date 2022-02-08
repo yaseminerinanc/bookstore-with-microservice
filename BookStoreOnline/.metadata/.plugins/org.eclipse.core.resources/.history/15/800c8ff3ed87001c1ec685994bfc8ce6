@@ -1,0 +1,42 @@
+package com.example.billingservice.service.Impl;
+
+import java.util.List;
+
+import com.example.billingservice.dto.request.CreateAddressRequest;
+import com.example.billingservice.dto.request.UpdateAddressRequest;
+import com.example.billingservice.dto.response.GetAddressResponse;
+import com.example.billingservice.service.AddressService;
+
+public class AddressServiceImpl implements AddressService {
+
+	@Override
+	public void createAddress(CreateAddressRequest createAddressRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<GetAddressResponse> getAddress() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateAddress(UpdateAddressRequest updateAddressRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public GetAddressResponse getAddressById(String addressId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteAddressById(String addressId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
